@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <!-- search -->
+            <input
+              type="text"
+              class="form-control searchInput"
+              placeholder="Search..."
+              [formControl]="searchControl"
+            />
+            <!-- table -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th
+                    role="button"
+                    class="table__header"
+                    *ngFor="let thName of tableHeaders; index as i"
+                    [ngClass]="{ 'table__header--id': i === 0 }"
+                  >
+                    {{ thName }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="table__body table__body--activeRow"
+                  *ngFor="let user of userData | filterUsers: searchText"
+                  (click)="openModal(user.id)"
+                >
+                  <td>{{ user.id }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td *ngFor="let role of user.roles">
+                    {{ role }}
+                  </td>
+                </tr>
+                <tr *ngIf="errorType == 1">
+                  <td colspan="4" class="text-center">
+                    You don't have permission! 🙁
+                  </td>
+                </tr>
+                <tr *ngIf="errorType == 0">
+                  <td colspan="4" class="text-center">
+                    No records found! 🙁
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-users-modal-edit 
+  [displayState]="displayValue"
+  [selectedID]="userID" 
+  (hideEditModal)="checkIsModalClose($event)"
+>
+</app-users-modal-edit>
+
+<button (click)="logOutUser()" class="btnLogout">
+  <fa-icon
+    [icon]="faArrowRightFromBracket"
+    class="fa-3x btnLogout--icon"
+  ></fa-icon>
+</button>

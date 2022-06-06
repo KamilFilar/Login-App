@@ -1,0 +1,81 @@
+<div class="login-container" >
+  <button
+    class="login-container__loggedUser"
+    routerLink="/users" 
+    *ngIf="loginState == true" 
+  >
+    Go to panel 😄
+  </button>
+  <form
+    class="login-container__form"
+    [formGroup]="loginForm"
+    (ngSubmit)="logIn()"
+    *ngIf="loginState == false"
+  >
+    <!-- Login input -->
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <fa-icon 
+          [icon]="faUser" 
+          class="input-group-prepend--icon"
+        ></fa-icon>
+      </div>
+      <input
+        type="text"
+        class="form-control shadow-none loginInput"
+        placeholder="Login"
+        aria-label="Login input"
+        aria-describedby="Login input"
+        formControlName="login"
+      />
+    </div>
+
+    <!-- Password input -->
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <fa-icon 
+          [icon]="faLock" 
+          class="input-group-prepend--icon"
+        ></fa-icon>
+      </div>
+      <input
+        type="password"
+        class="form-control shadow-none passwordInput"
+        placeholder="Password"
+        aria-label="Password input"
+        aria-describedby="Password input"
+        formControlName="password"
+      />
+      <div class="input-group-append">
+        <button 
+          class="input-group-append__btn" 
+          type="button" 
+          (click)="showPassword()"
+        >
+          <fa-icon
+            [icon]="faEye"
+            class="input-group-append__btn--icon"
+            *ngIf="isPaswordVisible"
+          ></fa-icon>
+          <fa-icon
+            [icon]="faEyeSlash"
+            class="input-group-append__btn--icon"
+            *ngIf="isPaswordVisible == false"
+          ></fa-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Submit btn -->
+    <button class="btn btn-success" type="submit">Log in</button>
+
+    <!-- Error msg-->
+    <p
+      class="errorMsg"
+      *ngIf="isErrorOccured"
+    >
+      Wrong login or password!
+    </p>
+  </form>
+</div>
+

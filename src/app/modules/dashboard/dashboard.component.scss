@@ -1,0 +1,39 @@
+.dashboard-container {
+  position: relative;
+  padding-top: 5%;
+  height: 100%;
+  min-height: 100vh;
+  background-image: url("./../../../assets/images/background.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  &__title {
+    position: relative;
+    width: 100%;
+    font-family: "Arial", sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 5px white;
+    transition: 0.3s;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-container__title {
+    font-size: 40px;
+  }
+}

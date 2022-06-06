@@ -1,0 +1,59 @@
+@import "./../../../../../assets/styling/bootstrapInput.scss";
+
+.container {
+  position: relative;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 7px white;
+}
+
+.searchInput {
+  width: 90%;
+  margin: 0 auto 10px;
+}
+
+.table {
+  table-layout: fixed;
+
+  &__header {
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+
+    &--id {
+      width: 20%;
+    }
+  }
+
+  &__body {
+    text-align: center;
+
+    &--activeRow:hover {
+      cursor: pointer;
+      background-color: rgb(230, 230, 230);
+      transition: 0.3s;
+    }
+  }
+}
+
+.btnLogout {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+
+  &--icon {
+    padding: 0;
+    color: forestgreen;
+    transition: 0.3s;
+  }
+
+  &:hover &--icon {
+    color: rgb(0, 190, 0);
+  }
+}

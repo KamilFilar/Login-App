@@ -1,0 +1,71 @@
+<div
+  class="modal"
+  role="dialog"
+  [ngStyle]="{ display: displayState }"
+  tabindex="-1"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit selected user</h4>
+        <button class="modal-closeBtn" (click)="closeModal()">
+          <fa-icon
+            [icon]="faCircleXmark"
+            class="fa-2x modal-closeBtn--icon"
+          ></fa-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          class="modal__form"
+          [formGroup]="userEditForm"
+          (ngSubmit)="updateSelectedUser()"
+        >
+          <!-- Username input -->
+          <div class="form-group">
+            <label class="form-group--title">Username:</label>
+            <input
+              type="text"
+              class="form-control shadow-none"
+              placeholder="New username"
+              aria-label="New username input"
+              aria-describedby="New username input"
+              formControlName="username"
+            />
+          </div>
+
+          <!-- Email input -->
+          <div class="form-group">
+            <label class="form-group--title">Email:</label>
+            <input
+              type="email"
+              class="form-control shadow-none"
+              placeholder="New email"
+              aria-label="New email input"
+              aria-describedby="New email input"
+              formControlName="email"
+            />
+          </div>
+
+          <!-- Role input -->
+          <div class="form-group">
+            <label class="form-group--title">Role:</label>
+            <select
+              class="form-select shadow-none"
+              aria-label="Default select example"
+              formControlName="role"
+            >
+              <option value="" selected hidden>Select new role</option>
+              <option *ngFor="let role of rolesArray" value="{{ role }}">
+                {{ role }}
+              </option>
+            </select>
+          </div>
+
+          <!-- BTN Submit -->
+          <button type="submit" class="btn btn-success">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

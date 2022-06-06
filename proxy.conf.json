@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "http://apiresttest.eba-wggmghuj.us-east-1.elasticbeanstalk.com/",
+    "secure": false,
+    "pathRewrite": { "^/api": "http://apiresttest.eba-wggmghuj.us-east-1.elasticbeanstalk.com/api" },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

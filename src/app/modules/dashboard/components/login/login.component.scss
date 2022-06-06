@@ -1,0 +1,108 @@
+@import "./../../../../../assets/styling/bootstrapInput.scss";
+
+.login-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__loggedUser {
+    padding: 5px 10px;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 7px white;
+    color: black;
+    font-size: 30px;
+    text-shadow: 0 0 2px black;
+    transition: 0.5s;
+
+    &:hover {
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__form {
+    position: relative;
+    margin-top: 50px;
+    padding: 15px;
+    width: 450px;
+    display: inherit;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 0 10px white;
+  }
+}
+
+// Bootstrap input style for only login component
+.input-group-prepend,
+.input-group-append {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(210, 210, 210);
+  background-color: white;
+}
+
+.input-group-prepend {
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+  &--icon {
+    color: forestgreen;
+  }
+}
+
+.input-group-append {
+  padding: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  &__btn {
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    &--icon {
+      color: grey;
+    }
+  }
+}
+
+.btn {
+  width: 100px;
+}
+
+.errorMsg {
+  margin: 0;
+  font-family: "Cambria", serif;
+  font-size: 30px;
+  color: rgb(210, 0, 0);
+  text-align: center;
+  animation: fadeInErrorMsg 0.3s ease-in;
+  transition: 0.3s;
+}
+
+@keyframes fadeInErrorMsg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-container__form {
+    width: 90%;
+  }
+
+  .errorMsg {
+    font-size: 23px;
+  }
+}
