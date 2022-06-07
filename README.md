@@ -22,6 +22,13 @@ npm install
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. You can use `ng serve -o` to automatically open project in browser.
 > **Attention!** If the application does not compile correctly, make sure that all packages are properly installed on your device.
 
+### Use this data to login in app:
+| LOGIN  | PASSWORD |
+| ------------- | ------------- |
+| admin  | haslo  |
+| user1  | haslo  |
+| user2  | haslo  |
+
 &nbsp;
 ## :construction_worker: Build:
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
