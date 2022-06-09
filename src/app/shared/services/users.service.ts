@@ -20,25 +20,25 @@ export class UsersService {
     private cookieService: CookieService
   ) {}
 
-  public getAllUsers(): Observable<User> {
+  getAllUsers(): Observable<User> {
     return this.http.get<User>(this.baseURL + 'all', {
       headers: this.headers,
     });
   }
 
-  public getUserByID(id: number): Observable<User> {
+  getUserByID(id: number): Observable<User> {
     return this.http.get<User>(this.baseURL + id.toString(), {
       headers: this.headers,
     });
   }
 
-  public getUserRoles(): Observable<string[]> {
+  getUserRoles(): Observable<string[]> {
     return this.http.get<string[]>(this.baseURL + 'roles', {
       headers: this.headers,
     });
   }
 
-  public updateUser(
+  updateUser(
     id: number,
     username: string,
     email: string,

@@ -14,7 +14,7 @@ export class AuthGuardService implements CanActivate{
     private cookieService: CookieService
   ) { }
 
-  public canActivate(): boolean {
+  canActivate(): boolean {
     if( this.cookieService.get('access_token') == '' ) {
       this.router.navigate(['../login'], { relativeTo: this.route });
       return false;

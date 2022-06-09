@@ -16,14 +16,18 @@ import { User } from 'src/app/shared/interfaces/user';
 })
 export class UsersComponent implements OnInit {
   
-  public faArrowRightFromBracket: IconDefinition = faArrowRightFromBracket;
-  public tableHeaders: string[] = ['ID', 'Username', 'Email', 'Role'];
-  public userData!: User;
-  public userID!: number;
-  public errorType!: number;
-  public displayValue: string = 'none';
-  public searchControl!: FormControl;
-  public searchText: string = '';
+  faArrowRightFromBracket: IconDefinition = faArrowRightFromBracket;
+  
+  tableHeaders: string[] = ['ID', 'Username', 'Email', 'Role'];
+  userData!: User;
+  userID!: number;
+  errorType!: number;
+  
+  displayValue: string = 'none';
+  
+  searchControl!: FormControl;
+  searchText: string = '';
+  
   private debounce: number = 400;
 
   constructor(
@@ -36,7 +40,7 @@ export class UsersComponent implements OnInit {
     this.getValueOfSearchInput();
   }
 
-  public getValueOfSearchInput(): void {
+  getValueOfSearchInput(): void {
     this.searchControl = new FormControl('');
     this.searchControl.valueChanges
       .pipe(debounceTime(this.debounce), distinctUntilChanged())
@@ -45,16 +49,16 @@ export class UsersComponent implements OnInit {
       });
   }
 
-  public openModal(id: number): void {
+  openModal(id: number): void {
     this.displayValue = 'block';
     this.userID = id;
   }
 
-  public checkIsModalClose(state: boolean): string {
+  checkIsModalClose(state: boolean): string {
     return state === true ? this.displayValue = 'none' : this.displayValue = 'block';
   }
 
-  public logOutUser(): void {
+  logOutUser(): void {
     this.authService.logOut();
   }
 

@@ -13,24 +13,25 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 
 export class LoginComponent implements OnInit{
 
-  public faUser: IconDefinition = faUser;
-  public faLock: IconDefinition = faLock;
-  public faEye: IconDefinition = faEye;
-  public faEyeSlash: IconDefinition = faEyeSlash;
-  public isPaswordVisible: boolean = false;
-  public loginState: boolean = false;
-  public isErrorOccured: boolean = false;
+  faUser: IconDefinition = faUser;
+  faLock: IconDefinition = faLock;
+  faEye: IconDefinition = faEye;
+  faEyeSlash: IconDefinition = faEyeSlash;
+  
+  isPaswordVisible: boolean = false;
+  loginState: boolean = false;
+  isErrorOccured: boolean = false;
 
-  public loginForm = new FormGroup({
+  loginForm = new FormGroup({
     login: new FormControl(''),
     password: new FormControl('')
   });
 
-  public get login() {
+  get login() {
     return this.loginForm.get('login');
   }
 
-  public get password() {
+  get password() {
     return this.loginForm.get('password');
   }
 
@@ -49,7 +50,7 @@ export class LoginComponent implements OnInit{
     return this.loginState;
   }
 
-  public showPassword(): void {
+  showPassword(): void {
     let input: HTMLInputElement = document.querySelector('.passwordInput')!;
     
     if (input.type === "password") {
@@ -62,7 +63,7 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  public logIn(): void {
+  logIn(): void {
     if(this.loginForm.invalid) return;
     
     this.authService

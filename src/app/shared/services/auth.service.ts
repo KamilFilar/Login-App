@@ -22,7 +22,7 @@ export class AuthService {
     private route: ActivatedRoute
   ) { }
 
-  public signIn(login: string, pass: string): Observable<any> {
+  signIn(login: string, pass: string): Observable<any> {
 
     const body = JSON.stringify({
       username: login,
@@ -32,7 +32,7 @@ export class AuthService {
     return this.http.post(this.baseURL, body, { headers: this.headers, observe: 'response'});
   }
 
-  public logOut(): void {
+  logOut(): void {
     this.cookieService.delete("access_token");
     this.router.navigate(['login'], { relativeTo: this.route })
   }

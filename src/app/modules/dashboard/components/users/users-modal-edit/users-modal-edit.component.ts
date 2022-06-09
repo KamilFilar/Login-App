@@ -14,23 +14,24 @@ export class UsersModalEditComponent implements OnInit {
   @Input() selectedID!: number;
   @Output() hideEditModal = new EventEmitter<boolean>();
   
-  public faCircleXmark: IconDefinition = faCircleXmark;
-  public rolesArray: string[] = [];
-  public userEditForm = new FormGroup({
+  faCircleXmark: IconDefinition = faCircleXmark;
+  
+  rolesArray: string[] = [];
+  userEditForm = new FormGroup({
     username: new FormControl(''),
     email: new FormControl(''),
     role: new FormControl('')
   })
 
-  public get username() {
+  get username() {
     return this.userEditForm.get('username');
   }
 
-  public get email() {
+  get email() {
     return this.userEditForm.get('email');
   }
 
-  public get role() {
+  get role() {
     return this.userEditForm.get('role');
   }
 
@@ -42,7 +43,7 @@ export class UsersModalEditComponent implements OnInit {
     this.getRolesOfUser(); 
   }
 
-  public updateSelectedUser() {
+  updateSelectedUser() {
     let userID!: number;
     let userNAME!: string;
     let userEMAIL!: string;
@@ -76,7 +77,7 @@ export class UsersModalEditComponent implements OnInit {
         // Issue to fix!
         this.usersService.updateUser(userID, userNAME, userEMAIL, userROLE).subscribe({
           next: () => {
-            alert('Zaktualizowano pomyślnie użytkownika ' + userID + '!');
+            alert('User: ' + userID + ' updated!');
           },
           error: (err) => {
             alert("ERROR: " + err.error);
@@ -89,7 +90,7 @@ export class UsersModalEditComponent implements OnInit {
     });
   }
 
-  public closeModal(): string {
+  closeModal(): string {
     this.hideEditModal.emit(true);
     return this.displayState = "none";
   }
